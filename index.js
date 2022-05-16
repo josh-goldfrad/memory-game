@@ -1,5 +1,6 @@
-let cards = ["A", "A", "B", "B", "C", "C", "D", "D", "E", "E", "F", "F", "G", "G", "H", "H", "I", "I"];
+let cards = ["A", "A", "B", "B", "C", "C", "D", "D", "E", "E", "F", "F", "G", "G", "H", "H", "I", "I", "j", "j", "K", "K", "L", "L", "M", "M", "N", "N", "O", "O", "P", "P", "Q", "Q", "R", "R", "S", "S", "T", "T", "U", "U"];
 let hasClickedCard = false;
+let switch_off = true
 let firstCard = 0, secondCard = 0, id_help = 0, point_to = 0, counter = 0;
 let index_players_plus_one = 1;
 let num1 = 0;
@@ -21,9 +22,9 @@ room.innerHTML = ' <h2> memory game</h2>';
 room.appendChild(gameboard);
 let btn_num = document.createElement("Button");
 room.appendChild(btn_num);
-btn_num.innerText = ' enter amount of players';
-btn_num.id = ("Button_num");
-btn_num.onclick = enter_num_of_players;
+btn_num.innerText = ' press here to start game';
+btn_num.classList = ("Button_num");
+btn_num.onclick = () => enter_num_of_players();
 let input_num = document.createElement("input");
 input_num.placeholder = "enter amount of players between 2-8";
 input_num.id = ("input_num");
@@ -31,6 +32,18 @@ room.appendChild(input_num);
 let playerName = document.createElement("div");
 playerName.classList = ("players");
 room.appendChild(playerName);
+let input_card_num = document.createElement("input");
+input_card_num.placeholder = "enter amount of card pairs, between 2-20 ";
+input_card_num.id = ("input_card_num");
+room.appendChild(input_card_num);
+let color_mode = document.createElement("div");
+color_mode.classList = ("color_mode")
+room.appendChild(color_mode);
+color_mode.innerText = 'color theme switch'
+let btn_color_theme = document.getElementById("color_theme");
+color_mode.appendChild(btn_color_theme);
+btn_color_theme.id = ("btn_color_theme");
+btn_color_theme.onchange = () => change_color_theme();
 
 
 function player_name_score() {
@@ -167,8 +180,10 @@ function player_creator(num_of_players) {
         players.push(new_player)
     }
     player_name_score()
+    how_many_cards()
     start_game(shuffleArray(cards));
 }
+
 
 
 
@@ -176,4 +191,40 @@ function enter_num_of_players() {
     let num1 = document.getElementById("input_num").value
     how_many_players(num1)
     return num1
+}
+
+
+
+function how_many_cards() {
+    let num_of_cards = document.getElementById("input_card_num").value
+    num_of_cards = num_of_cards * 2;
+    if (num_of_cards < 41 && num_of_cards > 3) {
+        return cards.length = (num_of_cards)
+    }
+    else {
+        alert("the number you enterd is not within our guidelines the default of 10 sets will be set for you")
+        return cards.length = 20
+    }
+}
+
+
+function change_color_theme() {
+    let temp = document.getElementsByClassName("card hidden")
+    let classes = [...temp];
+    if (switch_off == true) {
+        switch_off = false
+        room.classList = ("room dark");
+        playerName.classList += ("players black");
+        color_mode.classList = ("color_mode storm")
+        // classes.map(item => item.classList += (" darker"))
+        btn_num.classList=("Button_num very_dark");
+    }
+    else {
+        switch_off = true
+        room.classList = ("room")
+        playerName.classList = ("players");
+        color_mode.classList = ("color_mode")
+        // classes.map(item => item.classList )
+        btn_num.classList = ("Button_num");
+    }
 }

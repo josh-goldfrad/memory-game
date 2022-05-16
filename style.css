@@ -5,23 +5,31 @@
     bottom: 0;
     right: 0;
     overflow: auto;
-    background-image:url(https://www.consumerprivacyworld.com/wp-content/uploads/sites/41/2021/08/nature-319.jpg);
+    background-image: url(https://www.consumerprivacyworld.com/wp-content/uploads/sites/41/2021/08/nature-319.jpg);
     /* background-image: url(https://images.all-free-download.com/images/graphiclarge/sunlight_with_nature_background_art_vector_542361.jpg);  */
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     display: flex;
-    background-size:1800px 900px;
-    
-}
+    background-size: 2300px 1200px;
+    background-repeat: no-repeat;
+   
 
-h2{
+}
+.dark{
+    background-image: url(https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/1098340/f8f88d1c08c4e77c9b7dabd16a86afacf8e76a2a.jpg);
+}
+h2 {
     position: fixed;
     color: black;
-    background-color: slategrey;
+    background-color: #C4DDFF;
+    border-radius: 15px;
+    width: 150px;
 }
+
 .gameboard {
-    background-color: transparent;/*#97DBAE*/
+    background-color: transparent;
+    /*#97DBAE*/
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
@@ -31,15 +39,15 @@ h2{
     margin: auto;
     width: 50%;
     padding: 10px;
-    position:relative;
+    position: relative;
     left: 100px;
     top: 70px;
-   
+
 
 
 }
 
-.hidden  {
+.hidden {
     display: grid;
     margin: 8px;
     width: 100px;
@@ -63,65 +71,148 @@ h2{
     border-style: solid;
     background-size: 105px 155px;
 }
-.shown{
-  
+.darker{
+    background-image: linear-gradient(#555555,#264348);
+}
+.shown {
+
     background-image: linear-gradient(#F6FFA4, #B6FFCE);
     color: black;
     font-size: 90px;
     text-justify: auto;
 }
 
-.matched{
-  
-    background-image: linear-gradient(#F2F2F2, #383838,black);
+.matched {
+
+    background-image: linear-gradient(#F2F2F2, #383838, black);
     color: red;
     font-size: 90px;
     text-justify: auto;
 }
 
-.players{
+.players {
     position: fixed;
-    left:6px;
+    left: 6px;
     top: 50px;
     background: #C4DDFF;
     height: fit-content;
     overflow-wrap: break-word;
     display: flex;
+    border-radius: 8px;
 }
-#input_num{
+
+.black {
+    position: fixed;
+    left: 6px;
+    top: 50px;
+    border-color: whitesmoke;
+    background: #040c19;
+    color: whitesmoke;
+    height: fit-content;
+    overflow-wrap: break-word;
+    display: flex;
+}
+
+#input_num {
     position: fixed;
     height: fit-content;
     width: 250px;
-    left:8px;
-    top: 100px;  
+    left: 8px;
+    top: 100px;
 }
-#input_name{
+
+#input_name {
     position: fixed;
     height: fit-content;
     left: 8.2px;
     top: 150px;
     width: 250px;
 }
-#Button_num{
+
+#input_card_num {
     position: fixed;
     height: fit-content;
-    width: 200px;
-    left:7px;
-    top: 120px;
-    cursor: pointer;
-    background-image: linear-gradient(yellow,green);
-    color: navy;
-    
+    left: 8.2px;
+    top: 80px;
+    width: 250px;
 }
 
-#Button_name{
+.Button_num {
     position: fixed;
     height: fit-content;
     width: 200px;
-    left:7px;
-    top: 172px;
+    left: 7px;
+    top: 120px;
     cursor: pointer;
-    background-image: linear-gradient(yellow,green);
+    background-image: linear-gradient(yellow, green);
     color: navy;
-    
+
+}
+
+.very_dark{
+    color: whitesmoke;
+    background-image: linear-gradient(gray,black);
+}
+
+.color_mode{
+    background-image: linear-gradient(rgb(5, 213, 9), Black);
+    width: 130px;
+    height:56px ;
+    left: 7px;
+    top: 190px;
+    position: fixed;
+}
+.storm{
+    background-image: linear-gradient( gray,navy, Black);
+
+}
+.switch {
+    position: fixed;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    left: 8px;
+    top: 210px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
