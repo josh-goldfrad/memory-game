@@ -18,7 +18,7 @@ room.className = ("room");
 let gameboard = document.createElement("div");
 gameboard.className = ("gameboard");
 document.body.appendChild(room);
-room.innerHTML = ' <h2> memory game</h2>';
+room.innerHTML = `<h2 ${classList="memory game"}> memory game</h2>`;
 room.appendChild(gameboard);
 let btn_num = document.createElement("Button");
 room.appendChild(btn_num);
@@ -218,6 +218,7 @@ function change_color_theme() {
         color_mode.classList = ("color_mode storm")
         // classes.map(item => item.classList += (" darker"))
         btn_num.classList=("Button_num very_dark");
+        
     }
     else {
         switch_off = true
